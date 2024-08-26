@@ -9,11 +9,12 @@
 </head>
 <style>
   body {
-    /* background-image: url(./img/10-dieu-ban-chua-chac-biet-ve-be-anya-trong-spy-x-family6.jpg); */
+    background-image: url(./img/10-dieu-ban-chua-chac-biet-ve-be-anya-trong-spy-x-family6.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     height: 100%;
     background-size: cover;
+    background-color: lightblue;
   }
 
   h1 {
@@ -325,16 +326,137 @@
   <p class="round3">Roundest border</p>
 
   <!-- CSS Margins -->
+  <h1>CSS Margins</h1>
+
+  <h2>Using individual margin properties</h2>
+
+  <div class="div-mr">This div element has a top margin of 100px, a right margin of 150px, a bottom margin of 100px, and
+    a left margin of 80px.</div>
+
+  <h2>Thuộc tính này marginlà thuộc tính viết tắt của các thuộc tính biên độ riêng lẻ sau đây:</h2>
+  <pre>
+    margin-top
+    margin-right
+    margin-bottom
+    margin-left
+
+  </pre>
 
   <!-- CSS Padding -->
+  <h1>CSS Padding</h1>
+  <h2>Đệm - Các mặt riêng biệt</h2>
+  <h3>CSS có các thuộc tính để chỉ định khoảng đệm cho mỗi bên của một phần tử:</h3>
+  <pre>
+    padding-top
+    padding-right
+    padding-bottom
+    padding-left
+  </pre>
+
+  <h2>Using individual padding properties: Bùi Văn Cường -2121050819</h2>
+
+  <div class="div-pd">This div element has a top padding of 50px, a right padding of 30px, a bottom padding of 50px, and
+    a left padding of 80px.: Bùi Văn Cường -2121050819</div>
+
 
   <!-- CSS Height, Width and Max-width -->
+  <h1>CSS Height, Width and Max-width</h1>
+  <h2>Giá trị chiều cao và chiều rộng của CSS</h2>
+  <h3>Các thuộc tính heightvà widthcó thể có các giá trị sau:</h3>
+  <pre>
+    auto- Đây là mặc định. Trình duyệt tính toán chiều cao và chiều rộng
+    length- Xác định chiều cao/chiều rộng theo px, cm, v.v.
+    %- Xác định chiều cao/chiều rộng theo phần trăm của khối chứa
+    initial- Đặt chiều cao/chiều rộng thành giá trị mặc định
+    inherit- Chiều cao/chiều rộng sẽ được kế thừa từ giá trị cha của nó
+  </pre>
+
+  <h2>Set the height and width of an element:Bùi Văn Cường - 2112050819</h2>
+
+  <div class="div-hw">This div element has a height of 200px and a width of 50%.:Bùi Văn Cường - 2112050819</div>
 
   <!-- CSS Box Model -->
+  <h1>CSS Box Model</h1>
+  <h2>Demonstrating the Box Model: Bùi Văn Cường - 2121050819</h2>
+
+  <p>The CSS box model is essentially a box that wraps around every HTML element. It consists of: borders, padding,
+    margins, and the actual content.: Bùi Văn Cường - 2121050819</p>
+
+  <div class="div-box">This text is the content of the box. We have added a 50px padding, 20px margin and a 15px green
+    border. Ut enim
+    ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+    dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+    cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Bùi Văn Cường - 2121050819
+  </div>
 
   <!-- CSS Outline -->
+  <h1> CSS Outline</h1>
+  <h2>CSS có các thuộc tính phác thảo sau:</h2>
+  <pre>
+      outline-style
+      outline-color
+      outline-width
+      outline-offset
+      outline
+   </pre>
+  <h2>Kiểu phác thảo CSS
+    Thuộc tính này outline-stylechỉ định kiểu của phác thảo và có thể có một trong các giá trị sau:</h2>
+  <pre>
+      dotted- Xác định đường viền chấm bi
+      dashed- Xác định đường viền nét đứt
+      solid- Xác định một phác thảo vững chắc
+      double- Xác định một phác thảo kép
+      groove- Xác định đường viền rãnh 3D
+      ridge- Xác định đường viền có gờ 3D
+      inset- Xác định đường viền chèn 3D
+      outset- Xác định phác thảo ban đầu 3D
+      none- Không xác định phác thảo
+      hidden- Xác định một phác thảo ẩn
+    </pre>
+  <h2>Chiều rộng phác thảo CSS</h2>
+  <h3>Thuộc tính này outline-widthchỉ định chiều rộng của đường viền và có thể có một trong các giá trị sau:</h3>
+  <pre>
+      mỏng (thường là 1px)
+      trung bình (thường là 3px)
+      dày (thường là 5px)
+      Một kích thước cụ thể (tính bằng px, pt, cm, em, v.v.)
+    </pre>
+
+  <h2>The outline-width Property</h2>
+
+  <p class="ex1">A thin outline.</p>
+  <p class="ex2">A medium outline.</p>
+  <p class="ex3">A thick outline.</p>
+  <p class="ex4">A 4px thick outline.</p>
+
+  <h1>Màu viền CSS
+    Thuộc tính này outline-colorđược sử dụng để thiết lập màu cho đường viền.</h1>
+  <h2>Màu sắc có thể được thiết lập bằng cách:</h2>
+  <pre>
+      tên - chỉ định tên màu, như "đỏ"
+      HEX - chỉ định giá trị hex, như "#ff0000"
+      RGB - chỉ định giá trị RGB, như "rgb(255,0,0)"
+      HSL - chỉ định giá trị HSL, như "hsl(0, 100%, 50%)"
+      đảo ngược - thực hiện đảo ngược màu (đảm bảo rằng đường viền có thể nhìn thấy được, bất kể màu nền)
+    </pre>
+
+  <h2>CSS Outline - Thuộc tính viết tắt</h2>
+  <h3>Thuộc tính này outlinelà một thuộc tính viết tắt để thiết lập các thuộc tính phác thảo riêng lẻ sau đây:</h3>
+  <pre>
+      outline-width
+      outline-style(yêu cầu)
+      outline-color
+    </pre>
+  <h3>Thuộc outlinetính được chỉ định là một, hai hoặc ba giá trị từ danh sách trên. Thứ tự của các giá trị không quan
+    trọng.</h3>
+
+  <h2>Bù trừ phác thảo CSS</h2>
+  <h3>Thuộc tính này outline-offsetthêm khoảng cách giữa đường viền và cạnh/đường viền của một phần tử. Khoảng cách giữa
+    một phần tử và đường viền của nó là trong suốt.</h3>
 
   <!-- CSS Text -->
+  <h1>CSS Text</h1>
+
 
   <!-- CSS Fonts -->
 
@@ -393,4 +515,5 @@
   <!-- CSS The !important Rule -->
 
   <!-- CSS Math Functions -->
+
 </html>
