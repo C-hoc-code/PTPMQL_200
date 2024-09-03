@@ -1082,10 +1082,11 @@
 
 
   <!-- CSS Pseudo-classes -->
-   <h1>Bộ kết hợp CSS</h1>
-   <h2>Một bộ chọn CSS có thể chứa nhiều hơn một bộ chọn đơn giản. Giữa các bộ chọn đơn giản, chúng ta có thể bao gồm một bộ kết hợp.</h2>
-   <h3>Có bốn bộ kết hợp khác nhau trong CSS:</h3>
-   <pre>
+  <h1>Bộ kết hợp CSS</h1>
+  <h2>Một bộ chọn CSS có thể chứa nhiều hơn một bộ chọn đơn giản. Giữa các bộ chọn đơn giản, chúng ta có thể bao gồm một
+    bộ kết hợp.</h2>
+  <h3>Có bốn bộ kết hợp khác nhau trong CSS:</h3>
+  <pre>
     bộ chọn hậu duệ (khoảng cách)
     bộ chọn con (>)
     bộ chọn anh chị em liền kề (+)
@@ -1093,78 +1094,383 @@
    </pre>
 
   <!-- CSS Pseudo-elementsCSS  -->
-   <h1>Các lớp giả CSS</h1>
-   <h2>Lớp giả là gì?</h2>
-   <h3>Lớp giả được sử dụng để xác định trạng thái đặc biệt của một phần tử.</h3>
-   <h3>Ví dụ, nó có thể được sử dụng để:</h3>
-   <pre>
+  <h1>Các lớp giả CSS</h1>
+  <h2>Lớp giả là gì?</h2>
+  <h3>Lớp giả được sử dụng để xác định trạng thái đặc biệt của một phần tử.</h3>
+  <h3>Ví dụ, nó có thể được sử dụng để:</h3>
+  <pre>
     Tạo kiểu cho một phần tử khi người dùng di chuột qua nó
     Kiểu liên kết đã truy cập và chưa truy cập khác nhau
     Tạo kiểu cho một phần tử khi nó được chú ý
    </pre>
 
-   <h2>Styling a link depending on state</h2>
+  <h2>Styling a link depending on state</h2>
 
-<p><b><a href="default.asp" target="_blank">This is a link</a></b></p>
-<p><b>Note:</b> a:hover MUST come after a:link and a:visited in the CSS definition in order to be effective.</p>
-<p><b>Note:</b> a:active MUST come after a:hover in the CSS definition in order to be effective.</p>
+  <p><b><a href="default.asp" target="_blank">This is a link</a></b></p>
+  <p><b>Note:</b> a:hover MUST come after a:link and a:visited in the CSS definition in order to be effective.</p>
+  <p><b>Note:</b> a:active MUST come after a:hover in the CSS definition in order to be effective.</p>
 
-<h1>Di chuột vào Tooltip đơn giản</h1>
-<div class="hover-in">Hover over this div element to show the p element
-  <p class="p-an">Tada! Here I am!</p>
-</div>
+  <h1>Di chuột vào Tooltip đơn giản</h1>
+  <div class="hover-in">Hover over this div element to show the p element
+    <p class="p-an">Tada! Here I am!</p>
+  </div>
 
 
-  <!-- Opacity / TransparencyCSS  -->
-   <h1>Các phần tử giả CSS</h1>
-   <h2>Phần tử giả là gì?</h2>
-   <h3>Phần tử giả CSS được sử dụng để định kiểu cho các phần được chỉ định của một phần tử.
+  <h1>Các phần tử giả CSS</h1>
+  <h2>Phần tử giả là gì?</h2>
+  <h3>Phần tử giả CSS được sử dụng để định kiểu cho các phần được chỉ định của một phần tử.
 
     Ví dụ, nó có thể được sử dụng để:</h3>
-    <pre>
-      Định dạng chữ cái đầu tiên hoặc dòng đầu tiên của một phần tử
-      Chèn nội dung trước hoặc sau nội dung của một phần tử
-    </pre>
-<h1>::Phần tử giả dòng đầu tiên</h1>
-<h2>Phần ::first-linetử giả được sử dụng để thêm kiểu đặc biệt vào dòng đầu tiên của văn bản.</h2>
-<h2>Lưu ý: Phần ::first-linetử giả chỉ có thể được áp dụng cho các phần tử cấp khối.</h2>
-<h3>Các thuộc tính sau đây áp dụng cho ::first-line phần tử giả:</h3>
-<pre>
-  thuộc tính phông chữ
-  tính chất màu sắc
-  thuộc tính nền
-  khoảng cách từ
-  khoảng cách giữa các chữ cái
-  trang trí văn bản
-  căn chỉnh theo chiều dọc
-  chuyển đổi văn bản
-  chiều cao dòng
-  thông thoáng
-</pre>
+  <pre>
+    Định dạng chữ cái đầu tiên hoặc dòng đầu tiên của một phần tử
+    Chèn nội dung trước hoặc sau nội dung của một phần tử
+  </pre>
+  <h1>::Phần tử giả dòng đầu tiên</h1>
+  <h2>Phần ::first-linetử giả được sử dụng để thêm kiểu đặc biệt vào dòng đầu tiên của văn bản.</h2>
+  <h2>Lưu ý: Phần ::first-linetử giả chỉ có thể được áp dụng cho các phần tử cấp khối.</h2>
+  <h3>Các thuộc tính sau đây áp dụng cho ::first-line phần tử giả:</h3>
+  <pre>
+    thuộc tính phông chữ
+    tính chất màu sắc
+    thuộc tính nền
+    khoảng cách từ
+    khoảng cách giữa các chữ cái
+    trang trí văn bản
+    căn chỉnh theo chiều dọc
+    chuyển đổi văn bản
+    chiều cao dòng
+    thông thoáng
+  </pre>
+  <h1>Phần tử giả ::chữ cái đầu tiên</h1>
+  <h2>Phần ::first-lettertử giả được sử dụng để thêm một kiểu đặc biệt vào chữ cái đầu tiên của văn bản.</h2>
+  <h3>Các thuộc tính sau đây áp dụng cho phần tử giả ::first-letter: </h3>
+  <pre>
+    thuộc tính phông chữ
+    tính chất màu sắc 
+    thuộc tính nền
+    thuộc tính lề
+    thuộc tính đệm
+    thuộc tính biên giới
+    trang trí văn bản
+    căn chỉnh theo chiều dọc (chỉ khi "float" là "none")
+    chuyển đổi văn bản
+    chiều cao dòng
+    trôi nổi
+    thông thoáng
+    
+  </pre>
+  <h1>CSS - Phần tử giả ::before</h1>
+  <h2>Phần ::beforetử giả có thể được sử dụng để chèn một số nội dung trước nội dung của một phần tử.</h2>
+
+  <h1>CSS - Phần tử giả ::after</h1>
+  <h2>Phần ::aftertử giả có thể được sử dụng để chèn một số nội dung sau nội dung của một phần tử.</h2>
+
+  <h1>CSS - Phần tử giả ::marker</h1>
+  <h2>Phần ::markertử giả chọn các điểm đánh dấu của các mục danh sách.</h2>
+
+  <h1>CSS - Phần tử giả ::selection</h1>
+  <h2>Phần ::selectiontử giả sẽ khớp với phần tử được người dùng chọn.
+
+    Các thuộc tính CSS sau đây có thể được áp dụng cho ::selection: color, background, cursor, và outline.</h2>
+
+  <!-- Opacity / TransparencyCSS  -->
+  <h1>Độ mờ đục/ Độ trong suốt của CSS</h1>
+  <h2>Thuộc tính này opacitychỉ định độ mờ đục/trong suốt của một phần tử.</h2>
+  <h1>Hiệu ứng di chuột trong suốt</h1>
+  <h2>Thuộc tính này opacitythường được sử dụng cùng với :hover bộ chọn để thay đổi độ mờ khi di chuột qua:</h2>
+  <h1>Hình ảnh trong suốt</h1>
+  <h2>Thuộc tính này opacitycó thể có giá trị từ 0,0 - 1,0. Giá trị càng thấp thì càng minh bạch:</h2>
 
 
   <!-- Navigation Bar -->
+  <h1>Ví dụ về thanh điều hướng dọc</h1>
+  <h2>Vertical Navigation Bar</h2>
+
+  <ul class="ul-doc">
+    <li class="li-doc"><a href="#home">Home</a></li>
+    <li class="li-doc"><a href="#news">News</a></li>
+    <li class="li-doc"><a href="#contact">Contact</a></li>
+    <li class="li-doc"><a href="#about">About</a></li>
+  </ul>
+
+  <h1>Thanh điều hướng ngang</h1>
+  <ul class="ul-ngang">
+    <li class="li-ngang"><a href="#home">Home</a></li>
+    <li class="li-ngang"><a href="#news">News</a></li>
+    <li class="dropdown li-ngang">
+      <a href="javascript:void(0)" class="dropbtn">Dropdown</a>
+      <div class="dropdown-content">
+        <a href="#">Link 1</a>
+        <a href="#">Link 2</a>
+        <a href="#">Link 3</a>
+      </div>
+    </li>
+  </ul>
+
+  <h3>Dropdown Menu inside a Navigation Bar</h3>
+  <p>Hover over the "Dropdown" link to see the dropdown menu.</p>
+
 
   <!-- CSS Dropdowns -->
+  <h1>CSS thả xuống</h1>
+  <ul class="ul-dr">
+    <li class="nav-dr"><a href="#home">Home</a></li>
+    <li class="nav-dr"><a href="#news">News</a></li>
+    <li class="dropdown nav-dr">
+      <a href="javascript:void(0)" class="dropbtn">Dropdown</a>
+      <div class="dropdown-content">
+        <a href="#">Link 1</a>
+        <a href="#">Link 2</a>
+        <a href="#">Link 3</a>
+      </div>
+    </li>
+  </ul>
+
+  <h3>Dropdown Menu inside a Navigation Bar</h3>
+  <p>Hover over the "Dropdown" link to see the dropdown menu.</p>
+
 
   <!-- CSS Image Gallery -->
+  <h1>Thư viện hình ảnh CSS</h1>
+  <div class="gallery">
+    <a target="_blank" href="./img/10-dieu-ban-chua-chac-biet-ve-be-anya-trong-spy-x-family6.jpg">
+      <img src="./img/10-dieu-ban-chua-chac-biet-ve-be-anya-trong-spy-x-family6.jpg" alt="Spy x Family" width="600"
+        height="400">
+    </a>
+    <div class="desc">Đây là anya</div>
+  </div>
+
 
   <!-- CSS Image Sprites -->
+  <h1>Hình ảnh Sprite</h1>
+  <h2>Một hình ảnh sprite là tập hợp nhiều hình ảnh được đưa vào một hình ảnh duy nhất.
+
+    Một trang web có nhiều hình ảnh có thể mất nhiều thời gian để tải và tạo ra nhiều yêu cầu máy chủ.
+
+    Sử dụng hình ảnh sprite sẽ làm giảm số lượng yêu cầu máy chủ và tiết kiệm băng thông.</h2>
+
 
   <!-- CSS Attribute Selectors -->
+  <h1>Bộ chọn thuộc tính CSS</h1>
+  <h2>Bộ [attribute]chọn được sử dụng để chọn các phần tử có thuộc tính được chỉ định.</h2>
+
+  <h1>Bộ chọn CSS [thuộc tính="giá trị"]</h1>
+  <h2>Bộ [attribute="value"]chọn được sử dụng để chọn các phần tử có thuộc tính và giá trị được chỉ định.</h2>
+
+  <h1>Bộ chọn CSS [thuộc tính~="giá trị"]</h1>
+  <h2>Bộ [attribute~="value"]chọn được sử dụng để chọn các phần tử có giá trị thuộc tính chứa một từ được chỉ định.</h2>
+
+
+  <h1>Bộ chọn [thuộc tính|="giá trị"] CSS</h1>
+  <h2>Bộ [attribute|="value"]chọn được sử dụng để chọn các phần tử có thuộc tính được chỉ định, giá trị của thuộc tính
+    này có thể chính xác là giá trị được chỉ định hoặc giá trị được chỉ định theo sau bởi dấu gạch nối (-).</h2>
+
+
+  <h1>Bộ chọn [thuộc tính^="giá trị"] CSS</h1>
+  <h2>Bộ [attribute^="value"]chọn được sử dụng để chọn các phần tử có thuộc tính được chỉ định, có giá trị bắt đầu bằng
+    giá trị được chỉ định.</h2>
+
+  <h1>Bộ chọn CSS [thuộc tính$="giá trị"]</h1>
+  <h2>Bộ [attribute$="value"]chọn được sử dụng để chọn các phần tử có giá trị thuộc tính kết thúc bằng giá trị được chỉ
+    định.</h2>
+
+  <h1>Bộ chọn CSS [thuộc tính*="giá trị"]</h1>
+  <h2>Bộ [attribute*="value"]chọn được sử dụng để chọn các phần tử có giá trị thuộc tính chứa giá trị được chỉ định.
+  </h2>
 
   <!-- CSS Forms -->
+  <h1>Biểu mẫu CSS</h1>
+  <h2>Input field with an icon inside</h2>
+
+  <form>
+    <input type="text" name="search" placeholder="Search..">
+  </form>
+
+  <h2>Styling a select menu</h2>
+
+  <form>
+    <select id="country" name="country">
+      <option value="au">Australia</option>
+      <option value="ca">Canada</option>
+      <option value="usa">USA</option>
+    </select>
+  </form>
+
+  <h2>Styling form buttons</h2>
+
+  <input type="button" value="Button">
+  <input type="reset" value="Reset">
+  <input type="submit" value="Submit">
+
+  <h2>Responsive Form</h2>
+  <p>Resize the browser window to see the effect. When the screen is less than 600px wide, make the two columns stack on
+    top of each other instead of next to each other.</p>
+
+  <div class="container">
+    <form action="/action_page.php">
+      <div class="row">
+        <div class="col-25">
+          <label for="fname">First Name</label>
+        </div>
+        <div class="col-75">
+          <input type="text" id="fname" name="firstname" placeholder="Your name..">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-25">
+          <label for="lname">Last Name</label>
+        </div>
+        <div class="col-75">
+          <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-25">
+          <label for="country">Country</label>
+        </div>
+        <div class="col-75">
+          <select id="country" name="country">
+            <option value="australia">Australia</option>
+            <option value="canada">Canada</option>
+            <option value="usa">USA</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-25">
+          <label for="subject">Subject</label>
+        </div>
+        <div class="col-75">
+          <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <input type="submit" value="Submit">
+      </div>
+    </form>
+  </div>
 
   <!-- CSS Counters -->
+  <h1>Bộ đếm CSS</h1>
+  <pre>
+    Mô tả                             thuộc tính
+    content                           Được sử dụng với các phần tử giả ::before và ::after, để chèn nội dung đã tạo
+    counter-increment                 Tăng một hoặc nhiều giá trị bộ đếm
+    counter-reset                     Tạo hoặc đặt lại một hoặc nhiều bộ đếm
+    counter()                         Trả về giá trị hiện tại của bộ đếm được đặt tên
+   </pre>
 
   <!-- CSS Website Layout -->
+  <h1>Bố cục trang web</h1>
+  <div class="header">
+    <h1 style="color: black;">My Website</h1>
+    <p>Resize the browser window to see the effect.</p>
+  </div>
+
+  <div class="topnav">
+    <a href="#">Link</a>
+    <a href="#">Link</a>
+    <a href="#">Link</a>
+    <a href="#" style="float:right">Link</a>
+  </div>
+
+  <div class="row">
+    <div class="leftcolumn">
+      <div class="card">
+        <h2>TITLE HEADING</h2>
+        <h5>Title description, Dec 7, 2017</h5>
+        <div class="fakeimg" style="height:200px;">Image</div>
+        <p>Some text..</p>
+        <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+          ullamco.</p>
+      </div>
+      <div class="card">
+        <h2>TITLE HEADING</h2>
+        <h5>Title description, Sep 2, 2017</h5>
+        <div class="fakeimg" style="height:200px;">Image</div>
+        <p>Some text..</p>
+        <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+          ullamco.</p>
+      </div>
+    </div>
+    <div class="rightcolumn">
+      <div class="card">
+        <h2>About Me</h2>
+        <div class="fakeimg" style="height:100px;">Image</div>
+        <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
+      </div>
+      <div class="card">
+        <h3>Popular Post</h3>
+        <div class="fakeimg">
+          <p>Image</p>
+        </div>
+        <div class="fakeimg">
+          <p>Image</p>
+        </div>
+        <div class="fakeimg">
+          <p>Image</p>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Follow Me</h3>
+        <p>Some text..</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <h2>Footer</h2>
+  </div>
 
   <!-- CSS Units -->
+  <h1>Đơn vị CSS</h1>
+  <h1>Hỗ trợ trình duyệt</h1>
+  <h2>Các số trong bảng chỉ rõ phiên bản trình duyệt đầu tiên hỗ trợ đầy đủ đơn vị độ dài.</h2>
+  <pre>
+  Length Unit                 chrome  edg   firefox safari  opera
+    em, ex, %, px, cm,        1.0     3.0   1.0	      1.0    3.5
+    mm, in, pt, pc
+    ch	                      27.0    9.0   1.0	      7.0    20.0
+    rem                       4.0     9.0   3.6	      4.1    11.6
+    vh, vw                    20.0    9.0   19.0      6.0    20.0
+    vmin                      20.0    12.0  19.0      6.0    20.0
+    vmax                      26.0    16.0  19.0      7.0    20.0
+</pre>
 
   <!-- CSS Specificity -->
+  <h1>Đặc điểm của CSS</h1>
+  <h2>Độ đặc hiệu là gì?</h2>
+  <h3>Nếu có hai hoặc nhiều quy tắc CSS trỏ đến cùng một phần tử, bộ chọn có giá trị đặc hiệu cao nhất sẽ "chiến thắng"
+    và khai báo kiểu của bộ chọn đó sẽ được áp dụng cho phần tử HTML đó.
+
+    Hãy coi tính đặc thù như một điểm số/xếp hạng quyết định tuyên bố kiểu nào cuối cùng được áp dụng cho một phần tử.
+  </h3>
+  <h1>Phân cấp độ đặc hiệu</h1>
+  <h2>Mỗi bộ chọn CSS đều có vị trí riêng trong hệ thống phân cấp độ cụ thể.</h2>
+  <pre>
+      Kiểu nội tuyến - Ví dụ: <h1 style="color: pink;">
+      ID - Ví dụ: #navbar
+      Các lớp, lớp giả, bộ chọn thuộc tính - Ví dụ: .test, :hover, [href]
+      Các phần tử và phần tử giả - Ví dụ: h1, ::before
+    </pre>
 
   <!-- CSS The !important Rule -->
+<h1>Quy tắc CSS !important</h1>
+<h2>Quy !importanttắc trong CSS được sử dụng để thêm mức độ quan trọng cho một thuộc tính/giá trị hơn bình thường.
+
+  Trên thực tế, nếu bạn sử dụng !importantquy tắc, nó sẽ ghi đè TẤT CẢ các quy tắc tạo kiểu trước đó cho thuộc tính cụ thể đó trên phần tử đó!</h2>
 
   <!-- CSS Math Functions -->
+   <h1>Hàm toán học CSS</h1>
+   <h1>Tất cả các hàm toán học CSS</h1>
+   <pre>
+    hàm                 Mô tả 
+    calc()            Cho phép bạn thực hiện các phép tính để xác định giá trị thuộc tính CSS
+    max()             Sử dụng giá trị lớn nhất, từ danh sách các giá trị được phân tách bằng dấu phẩy, làm giá trị thuộc tính
+    min()             Sử dụng giá trị nhỏ nhất, từ danh sách các giá trị được phân tách bằng dấu phẩy, làm giá trị thuộc tính
+   </pre>
 
 </html>

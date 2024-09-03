@@ -1,19 +1,51 @@
 .add-css {
-    color: navy;
+  color: navy;
   margin-left: 20px;
 }
 
-p.dotted {border-style: dotted;}
-p.dashed {border-style: dashed;}
-p.solid {border-style: solid;}
-p.double {border-style: double;}
-p.groove {border-style: groove;}
-p.ridge {border-style: ridge;}
-p.inset {border-style: inset;}
-p.outset {border-style: outset;}
-p.none {border-style: none;}
-p.hidden {border-style: hidden;}
-p.mix {border-style: dotted dashed solid double;}
+p.dotted {
+  border-style: dotted;
+}
+
+p.dashed {
+  border-style: dashed;
+}
+
+p.solid {
+  border-style: solid;
+}
+
+p.double {
+  border-style: double;
+}
+
+p.groove {
+  border-style: groove;
+}
+
+p.ridge {
+  border-style: ridge;
+}
+
+p.inset {
+  border-style: inset;
+}
+
+p.outset {
+  border-style: outset;
+}
+
+p.none {
+  border-style: none;
+}
+
+p.hidden {
+  border-style: hidden;
+}
+
+p.mix {
+  border-style: dotted dashed solid double;
+}
 
 p.one {
   border-style: solid;
@@ -172,49 +204,155 @@ p.thicker {
   font-weight: 900;
 }
 
-a.one:link {color:#ff0000;}
-a.one:visited {color:#0000ff;}
-a.one:hover {color:#ffcc00;}
+a.one:link {
+  color: #ff0000;
+}
 
-a.two:link {color:#ff0000;}
-a.two:visited {color:#0000ff;}
-a.two:hover {font-size:150%;}
+a.one:visited {
+  color: #0000ff;
+}
 
-a.three:link {color:#ff0000;}
-a.three:visited {color:#0000ff;}
-a.three:hover {background:#66ff66;}
+a.one:hover {
+  color: #ffcc00;
+}
 
-a.four:link {color:#ff0000;}
-a.four:visited {color:#0000ff;}
-a.four:hover {font-family:monospace;}
+a.two:link {
+  color: #ff0000;
+}
 
-a.five:link {color:#ff0000;text-decoration:none;}
-a.five:visited {color:#0000ff;text-decoration:none;}
-a.five:hover {text-decoration:underline;}
+a.two:visited {
+  color: #0000ff;
+}
 
-ul.a {list-style-type: circle;}
-ul.b {list-style-type: disc;}
-ul.c {list-style-type: square;}
+a.two:hover {
+  font-size: 150%;
+}
 
-ol.d {list-style-type: armenian;}
-ol.e {list-style-type: cjk-ideographic;}
-ol.f {list-style-type: decimal;}
-ol.g {list-style-type: decimal-leading-zero;}
-ol.h {list-style-type: georgian;}
-ol.i {list-style-type: hebrew;}
-ol.j {list-style-type: hiragana;}
-ol.k {list-style-type: hiragana-iroha;}
-ol.l {list-style-type: katakana;}
-ol.m {list-style-type: katakana-iroha;}
-ol.n {list-style-type: lower-alpha;}
-ol.o {list-style-type: lower-greek;}
-ol.p {list-style-type: lower-latin;}
-ol.q {list-style-type: lower-roman;}
-ol.r {list-style-type: upper-alpha;}
-ol.s {list-style-type: upper-latin;}
-ol.t {list-style-type: upper-roman;}
-ol.u {list-style-type: none;}
-ol.v {list-style-type: inherit;}
+a.three:link {
+  color: #ff0000;
+}
+
+a.three:visited {
+  color: #0000ff;
+}
+
+a.three:hover {
+  background: #66ff66;
+}
+
+a.four:link {
+  color: #ff0000;
+}
+
+a.four:visited {
+  color: #0000ff;
+}
+
+a.four:hover {
+  font-family: monospace;
+}
+
+a.five:link {
+  color: #ff0000;
+  text-decoration: none;
+}
+
+a.five:visited {
+  color: #0000ff;
+  text-decoration: none;
+}
+
+a.five:hover {
+  text-decoration: underline;
+}
+
+ul.a {
+  list-style-type: circle;
+}
+
+ul.b {
+  list-style-type: disc;
+}
+
+ul.c {
+  list-style-type: square;
+}
+
+ol.d {
+  list-style-type: armenian;
+}
+
+ol.e {
+  list-style-type: cjk-ideographic;
+}
+
+ol.f {
+  list-style-type: decimal;
+}
+
+ol.g {
+  list-style-type: decimal-leading-zero;
+}
+
+ol.h {
+  list-style-type: georgian;
+}
+
+ol.i {
+  list-style-type: hebrew;
+}
+
+ol.j {
+  list-style-type: hiragana;
+}
+
+ol.k {
+  list-style-type: hiragana-iroha;
+}
+
+ol.l {
+  list-style-type: katakana;
+}
+
+ol.m {
+  list-style-type: katakana-iroha;
+}
+
+ol.n {
+  list-style-type: lower-alpha;
+}
+
+ol.o {
+  list-style-type: lower-greek;
+}
+
+ol.p {
+  list-style-type: lower-latin;
+}
+
+ol.q {
+  list-style-type: lower-roman;
+}
+
+ol.r {
+  list-style-type: upper-alpha;
+}
+
+ol.s {
+  list-style-type: upper-latin;
+}
+
+ol.t {
+  list-style-type: upper-roman;
+}
+
+ol.u {
+  list-style-type: none;
+}
+
+ol.v {
+  list-style-type: inherit;
+}
 
 #customers {
   font-family: Arial, Helvetica, sans-serif;
@@ -222,14 +360,19 @@ ol.v {list-style-type: inherit;}
   width: 100%;
 }
 
-#customers td, #customers th {
+#customers td,
+#customers th {
   border: 1px solid #ddd;
   padding: 8px;
 }
 
-#customers tr:nth-child(even){background-color: #f2f2f2;}
+#customers tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
 
-#customers tr:hover {background-color: #ddd;}
+#customers tr:hover {
+  background-color: #ddd;
+}
 
 #customers th {
   padding-top: 12px;
@@ -282,7 +425,7 @@ div.relative {
   width: 400px;
   height: 200px;
   border: 3px solid #73AD21;
-} 
+}
 
 div.absolute {
   position: absolute;
@@ -302,9 +445,6 @@ div.sticky {
   border: 2px solid #4CAF50;
 }
 
-.container {
-  position: relative;
-}
 
 .black-box {
   position: relative;
@@ -316,9 +456,10 @@ div.sticky {
 
 .gray-box {
   position: absolute;
-  z-index: 3; /* gray box will be above both green and black box */
+  z-index: 3;
+  /* gray box will be above both green and black box */
   background: lightgray;
-  height: 60px;  
+  height: 60px;
   width: 70%;
   left: 50px;
   top: 50px;
@@ -326,7 +467,8 @@ div.sticky {
 
 .green-box {
   position: absolute;
-  z-index: 2; /* green box will be above black box */
+  z-index: 2;
+  /* green box will be above black box */
   background: lightgreen;
   width: 35%;
   left: 270px;
@@ -363,12 +505,13 @@ div.sticky {
 }
 
 span.a {
-  display: inline; /* the default for span */
+  display: inline;
+  /* the default for span */
   width: 100px;
   height: 100px;
   padding: 5px;
-  border: 1px solid blue;  
-  background-color: yellow; 
+  border: 1px solid blue;
+  background-color: yellow;
 }
 
 span.b {
@@ -376,8 +519,8 @@ span.b {
   width: 100px;
   height: 100px;
   padding: 5px;
-  border: 1px solid blue;    
-  background-color: yellow; 
+  border: 1px solid blue;
+  background-color: yellow;
 }
 
 span.c {
@@ -385,12 +528,12 @@ span.c {
   width: 100px;
   height: 100px;
   padding: 5px;
-  border: 1px solid blue;    
-  background-color: yellow; 
+  border: 1px solid blue;
+  background-color: yellow;
 }
 
 .nav {
-  background-color: yellow; 
+  background-color: yellow;
   list-style-type: none;
   text-align: center;
   margin: 0;
@@ -437,4 +580,324 @@ a:active {
 
 .hover-in:hover .p-an {
   display: block !important;
+}
+
+.ul-doc {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
+}
+
+.li-doc a {
+  display: block;
+  color: #000;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color on hover */
+.li-doc a:hover {
+  background-color: #555;
+  color: white;
+}
+
+.ul-ngang {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #38444d;
+}
+
+.li-ngang {
+  float: left;
+}
+
+.li-ngang a,
+.dropbtn {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.li-ngang a:hover,
+.dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+.li-ngang .dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* drop */
+
+.ul-dr {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+.nav-dr {
+  float: left;
+}
+
+.nav-dr a,
+.dropbtn {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.nav-dr a:hover,
+.dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+.nav-dr .dropdown {
+  display: inline-block;
+}
+
+
+.nav-dr .dropdown:hover .dropdown-content {
+  display: block;
+}
+
+div.gallery {
+  margin: 5px;
+  border: 1px solid #ccc;
+  float: left;
+  width: 180px;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+
+input[type=text] {
+  width: 130px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  background-image: url('searchicon.png');
+  background-position: 10px 10px; 
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+  transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+  width: 100%;
+}
+select {
+  width: 100%;
+  padding: 16px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+}
+
+input[type=button], input[type=submit], input[type=reset] {
+  background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  position: relative;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Header/Blog Title */
+.header {
+  padding: 30px;
+  text-align: center;
+  background: white;
+}
+
+.header h1 {
+  font-size: 50px;
+}
+
+/* Style the top navigation bar */
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+/* Style the topnav links */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Create two unequal columns that floats next to each other */
+/* Left column */
+.leftcolumn {   
+  float: left;
+  width: 75%;
+}
+
+/* Right column */
+.rightcolumn {
+  float: left;
+  width: 25%;
+  background-color: #f1f1f1;
+  padding-left: 20px;
+}
+
+/* Fake image */
+.fakeimg {
+  background-color: #aaa;
+  width: 100%;
+  padding: 20px;
+}
+
+/* Add a card effect for articles */
+.card {
+  background-color: white;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+/* Footer */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+  margin-top: 20px;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn {   
+    width: 100%;
+    padding: 0;
+  }
+}
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+  .topnav a {
+    float: none;
+    width: 100%;
+  }
 }
