@@ -1,5 +1,7 @@
 dotnet aspnet-codegenerator controller -name StudentController -m Student -dc DemoMVC.Data.ApplicationContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries --databaseProvider sqlite
 
+dotnet aspnet-codegenerator controller -name CheckPoiController -m CheckPoi -dc DemoMVC.Data.ApplicationContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries --databaseProvider sqlite
+
 dotnet tool uninstall --global dotnet-aspnet-codegenerator
 dotnet tool install --global dotnet-aspnet-codegenerator
 dotnet tool uninstall --global dotnet-ef

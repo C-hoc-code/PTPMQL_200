@@ -1,0 +1,41 @@
+@model IEnumerable<DemoMVC.Models.Entites.CheckPoi>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NamePoi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.poi)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NamePoi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.poi)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.PoiId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.PoiId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.PoiId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

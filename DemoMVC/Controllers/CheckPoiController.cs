@@ -1,26 +1,31 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DemoMVC.Data;
 using DemoMVC.Models.Entites;
 
 namespace DemoMVC.Controllers
 {
-    public class StudentController : Controller
+    public class CheckPoiController : Controller
     {
         private readonly ApplicationContext _context;
 
-        public StudentController(ApplicationContext context)
+        public CheckPoiController(ApplicationContext context)
         {
             _context = context;
         }
 
-        // GET: Student
+        // GET: CheckPoi
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Student.ToListAsync());
+            return View(await _context.CheckPoi.ToListAsync());
         }
 
-        // GET: Student/Details/5
+        // GET: CheckPoi/Details/5
         public async Task<IActionResult> Details(string id)
         {
             if (id == null)
@@ -28,39 +33,39 @@ namespace DemoMVC.Controllers
                 return NotFound();
             }
 
-            var student = await _context.Student
-                .FirstOrDefaultAsync(m => m.StudentID == id);
-            if (student == null)
+            var checkPoi = await _context.CheckPoi
+                .FirstOrDefaultAsync(m => m.PoiId == id);
+            if (checkPoi == null)
             {
                 return NotFound();
             }
 
-            return View(student);
+            return View(checkPoi);
         }
 
-        // GET: Student/Create
+        // GET: CheckPoi/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Student/Create
+        // POST: CheckPoi/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("StudentID,FullName,Address")] Student student)
+        public async Task<IActionResult> Create([Bind("PoiId,NamePoi,poi")] CheckPoi checkPoi)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(student);
+                _context.Add(checkPoi);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(student);
+            return View(checkPoi);
         }
 
-        // GET: Student/Edit/5
+        // GET: CheckPoi/Edit/5
         public async Task<IActionResult> Edit(string id)
         {
             if (id == null)
@@ -68,22 +73,22 @@ namespace DemoMVC.Controllers
                 return NotFound();
             }
 
-            var student = await _context.Student.FindAsync(id);
-            if (student == null)
+            var checkPoi = await _context.CheckPoi.FindAsync(id);
+            if (checkPoi == null)
             {
                 return NotFound();
             }
-            return View(student);
+            return View(checkPoi);
         }
 
-        // POST: Student/Edit/5
+        // POST: CheckPoi/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("StudentID,FullName,Address")] Student student)
+        public async Task<IActionResult> Edit(string id, [Bind("PoiId,NamePoi,poi")] CheckPoi checkPoi)
         {
-            if (id != student.StudentID)
+            if (id != checkPoi.PoiId)
             {
                 return NotFound();
             }
@@ -92,12 +97,12 @@ namespace DemoMVC.Controllers
             {
                 try
                 {
-                    _context.Update(student);
+                    _context.Update(checkPoi);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!StudentExists(student.StudentID))
+                    if (!CheckPoiExists(checkPoi.PoiId))
                     {
                         return NotFound();
                     }
@@ -108,10 +113,10 @@ namespace DemoMVC.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(student);
+            return View(checkPoi);
         }
 
-        // GET: Student/Delete/5
+        // GET: CheckPoi/Delete/5
         public async Task<IActionResult> Delete(string id)
         {
             if (id == null)
@@ -119,34 +124,34 @@ namespace DemoMVC.Controllers
                 return NotFound();
             }
 
-            var student = await _context.Student
-                .FirstOrDefaultAsync(m => m.StudentID == id);
-            if (student == null)
+            var checkPoi = await _context.CheckPoi
+                .FirstOrDefaultAsync(m => m.PoiId == id);
+            if (checkPoi == null)
             {
                 return NotFound();
             }
 
-            return View(student);
+            return View(checkPoi);
         }
 
-        // POST: Student/Delete/5
+        // POST: CheckPoi/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
-            var student = await _context.Student.FindAsync(id);
-            if (student != null)
+            var checkPoi = await _context.CheckPoi.FindAsync(id);
+            if (checkPoi != null)
             {
-                _context.Student.Remove(student);
+                _context.CheckPoi.Remove(checkPoi);
             }
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool StudentExists(string id)
+        private bool CheckPoiExists(string id)
         {
-            return _context.Student.Any(e => e.StudentID == id);
+            return _context.CheckPoi.Any(e => e.PoiId == id);
         }
     }
 }
