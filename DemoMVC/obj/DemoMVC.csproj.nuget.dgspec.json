@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\PTPMQL_200\\DemoMVC\\DemoMVC.csproj": {}
+    "D:\\PTPMQL_200\\demomvc\\DemoMVC.csproj": {}
   },
   "projects": {
-    "D:\\PTPMQL_200\\DemoMVC\\DemoMVC.csproj": {
+    "D:\\PTPMQL_200\\demomvc\\DemoMVC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\PTPMQL_200\\DemoMVC\\DemoMVC.csproj",
+        "projectUniqueName": "D:\\PTPMQL_200\\demomvc\\DemoMVC.csproj",
         "projectName": "DemoMVC",
-        "projectPath": "D:\\PTPMQL_200\\DemoMVC\\DemoMVC.csproj",
+        "projectPath": "D:\\PTPMQL_200\\demomvc\\DemoMVC.csproj",
         "packagesPath": "C:\\Users\\cuong\\.nuget\\packages\\",
-        "outputPath": "D:\\PTPMQL_200\\DemoMVC\\obj\\",
+        "outputPath": "D:\\PTPMQL_200\\demomvc\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\cuong\\AppData\\Roaming\\NuGet\\NuGet.Config"

@@ -15,9 +15,12 @@ namespace DemoMVC.Data
         }
 
         public DbSet<Student> Student { get; set; } = default!;
+        public DbSet<Person> Person { get; set; } = default!;
         public DbSet<Employee> Employee { get; set; } = default!;
-        public DbSet<CheckPoi> CheckPoi { get; set; } = default!;
-        public DbSet<Customer> Customer { get; set; } = default!;
-        
+        public DbSet<HeThongPhanPhoi> HeThongPhanPhoi { get; set; } = default!;
+
+        public DbSet<DaiLy> DaiLy { get; set; } = default!;
+
+
     }
 }

@@ -2,13 +2,10 @@ using System.ComponentModel.DataAnnotations;
 
 namespace DemoMVC.Models.Entites
 {
-    public class Employee
+    public class Employee : Person
     {
-        [Key]
         public string EmployeeID { get; set; }
 
-        public string EmployeeName { get; set; }
-
-        public string EmployeeAddress { get; set; }
+        public string CongTy { get; set; }
     }
 }
