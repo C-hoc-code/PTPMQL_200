@@ -19,11 +19,20 @@ namespace DemoMVC.Controllers
             _context = context;
         }
 
-        // GET: Person
-        public async Task<IActionResult> Index()
+        // GET: Persony
+        public async Task<IActionResult> Index(string searchString)
         {
-            return View(await _context.Person.ToListAsync());
+            var persons = from m in _context.Person
+                          select m;
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                persons = persons.Where(m => m.HoTen.ToUpper().Contains(searchString.ToUpper()));
+            }
+
+            return View(await persons.ToListAsync());
         }
+
 
         // GET: Person/Details/5
         public async Task<IActionResult> Details(string id)
