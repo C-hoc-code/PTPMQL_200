@@ -277,3 +277,11 @@ D:\PTPMQL_200\DemoMVC\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Ex
 D:\PTPMQL_200\DemoMVC\obj\Debug\net8.0\DemoMVC.csproj.AssemblyReference.cache
 D:\PTPMQL_200\DemoMVC\obj\Debug\net8.0\DemoMVC.csproj.Up2Date
 D:\PTPMQL_200\DemoMVC\bin\Debug\net8.0\Views\appsettings.Development.json
+D:\PTPMQL_200\demomvc\bin\Debug\net8.0\EPPlus.dll
+D:\PTPMQL_200\demomvc\bin\Debug\net8.0\EPPlus.Interfaces.dll
+D:\PTPMQL_200\demomvc\bin\Debug\net8.0\EPPlus.System.Drawing.dll
+D:\PTPMQL_200\demomvc\bin\Debug\net8.0\Microsoft.Extensions.Configuration.FileExtensions.dll
+D:\PTPMQL_200\demomvc\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Json.dll
+D:\PTPMQL_200\demomvc\bin\Debug\net8.0\Microsoft.IO.RecyclableMemoryStream.dll
+D:\PTPMQL_200\demomvc\bin\Debug\net8.0\System.Security.Cryptography.Pkcs.dll
+D:\PTPMQL_200\demomvc\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll

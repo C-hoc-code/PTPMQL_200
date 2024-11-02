@@ -7,12 +7,16 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DemoMVC.Data;
 using DemoMVC.Models.Entites;
+using DemoMVC.Models.Process;
+using OfficeOpenXml;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace DemoMVC.Controllers
 {
     public class PersonController : Controller
     {
         private readonly ApplicationContext _context;
+        private ExcelProcess _excelProcess = new ExcelProcess();
 
         public PersonController(ApplicationContext context)
         {
@@ -33,6 +37,70 @@ namespace DemoMVC.Controllers
             return View(await persons.ToListAsync());
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Upload(IFormFile file)
+        {
+            if (file != null)
+            {
+                string fileExtension = Path.GetExtension(file.FileName);
+                if (fileExtension.ToLower() != ".xls" && fileExtension.ToLower() != ".xlsx")
+                {
+                    ModelState.AddModelError("", "Vui lòng kiểm tra lại file excel vừa nhập!");
+                }
+                else
+                {
+                    var fileName = file.FileName;
+                    var filePath = Path.Combine(Directory.GetCurrentDirectory() + "/Uploads/Excels", fileName);
+                    var fileLocation = new FileInfo(filePath).ToString();
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await file.CopyToAsync(stream);
+                        // đọc file excel
+                        var dt = _excelProcess.ExcelToDataTable(fileLocation);
+                        // sử dụng vòng lặp đọc dữ liệu
+                        for (int i = 0; i < dt.Rows.Count; i++)
+                        {
+                            // tạo person mới
+                            var ps = new Person();
+                            // set giá trị cho thuộc tính
+                            ps.PersonID = dt.Rows[i][0].ToString();
+                            ps.HoTen = dt.Rows[i][1].ToString();
+                            ps.QueQuan = dt.Rows[i][2].ToString();
+                            // thêm vào context
+                            _context.Person.Add(ps);
+                        }
+                        await _context.SaveChangesAsync();
+                        return RedirectToAction(nameof(Index));
+                    }
+                }
+            }
+            return View();
+        }
+
+
+        public ActionResult Download()
+        {
+            var fileName = "PersonList" + ".xlsx";
+            using (ExcelPackage excelPackage = new ExcelPackage())
+            {
+                ExcelWorksheet worksheet = excelPackage.Workbook.Worksheets.Add("Sheet 1");
+                worksheet.Cells["A1"].Value = "PersonID";
+                worksheet.Cells["B1"].Value = "HoTen";
+                worksheet.Cells["C1"].Value = "QueQuan";
+
+                //lấy tất cả người dùng
+                var personList = _context.Person.ToList();
+
+                // điền dữ liệu
+                worksheet.Cells["A2"].LoadFromCollection(personList);
+                var stream = new MemoryStream(excelPackage.GetAsByteArray());
+
+                // Tải file
+                return File(stream, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", fileName);
+            }
+
+        }
 
         // GET: Person/Details/5
         public async Task<IActionResult> Details(string id)

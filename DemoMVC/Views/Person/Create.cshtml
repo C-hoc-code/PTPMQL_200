@@ -7,6 +7,14 @@
 <h1>Create</h1>
 
 <h4>Person</h4>
+<hr>
+<form asp-action="Upload" enctype="multipart/form-data">
+    <div class="row form-control">
+        <label for="" class="col-sm-2">Tải dử liệu từ file excel: </label>
+        <input type="file" name="file" class="col-sm-4">
+        <input type="submit" value="Tải lên" class="btn btn-primary col-sm-1">
+    </div>
+</form>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -39,5 +47,7 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
