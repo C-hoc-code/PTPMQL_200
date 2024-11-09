@@ -4,10 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using DemoMVC.Models.Entites;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using DemoMVCIdentity.Models;
 
 namespace DemoMVC.Data
 {
-    public class ApplicationContext : DbContext
+    public class ApplicationContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationContext(DbContextOptions<ApplicationContext> options)
             : base(options)
