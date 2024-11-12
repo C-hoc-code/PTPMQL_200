@@ -2,7 +2,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using DemoMVC.Data;
 using Microsoft.AspNetCore.Identity;
-using DemoMVCIdentity.Models;
+using DemoMVC.Models;
+using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<ApplicationContext>(options =>
@@ -11,6 +12,38 @@ builder.Services.AddDbContext<ApplicationContext>(options =>
 builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<ApplicationContext>();
 
 builder.Services.AddControllersWithViews();
+builder.Services.Configure<IdentityOptions>(options =>
+{
+    // Mặc định khóa đăng nhâp
+    options.Lockout.DefaultLockoutTimeSpan=TimeSpan.FromMinutes(5);
+    options.Lockout.MaxFailedAccessAttempts=3;
+    options.Lockout.AllowedForNewUsers=true;
+
+    // Cấu hình mật khẩu
+    options.Password.RequireDigit = true;
+    options.Password.RequiredLength = 6;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequireUppercase = true;
+    options.Password.RequireLowercase = false;
+
+    // Cấu hình xác thực tài khoản gửi về emaill và sdt
+    options.SignIn.RequireConfirmedEmail = false;
+    options.SignIn.RequireConfirmedPhoneNumber = false;
+
+    //Cấu hình tài khoản người dùng
+    options.User.RequireUniqueEmail = true;
+});
+
+// Cấu hình coockie
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.Cookie.HttpOnly = true; 
+    options.ExpireTimeSpan = TimeSpan.FromMinutes(60);
+    options.LoginPath = "/Account/Login";
+    options.AccessDeniedPath = "/Account/AccessDenied";
+    options.SlidingExpiration = true;
+});
+
 
 var app = builder.Build();
 

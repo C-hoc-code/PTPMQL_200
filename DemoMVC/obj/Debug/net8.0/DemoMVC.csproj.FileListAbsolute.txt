@@ -299,3 +299,5 @@ D:\PTPMQL_200\DemoMVC\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions
 D:\PTPMQL_200\DemoMVC\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
 D:\PTPMQL_200\DemoMVC\obj\Debug\net8.0\DemoMVC.MvcApplicationPartsAssemblyInfo.cs
 D:\PTPMQL_200\DemoMVC\bin\Debug\net8.0\System.Formats.Asn1.dll
+D:\PTPMQL_200\DemoMVC\bin\Debug\net8.0\X.PagedList.dll
+D:\PTPMQL_200\DemoMVC\bin\Debug\net8.0\X.PagedList.Mvc.Core.dll

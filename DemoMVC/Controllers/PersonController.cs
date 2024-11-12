@@ -10,6 +10,9 @@ using DemoMVC.Models.Entites;
 using DemoMVC.Models.Process;
 using OfficeOpenXml;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using X.PagedList;
+using X.PagedList.Extensions;
+
 
 namespace DemoMVC.Controllers
 {
@@ -23,19 +26,34 @@ namespace DemoMVC.Controllers
             _context = context;
         }
 
-        // GET: Persony
-        public async Task<IActionResult> Index(string searchString)
+        public async Task<IActionResult> Index(string searchString, int? page, int? PageSize)
         {
             var persons = from m in _context.Person
                           select m;
 
+            // Xử lý tìm kiếm
             if (!string.IsNullOrEmpty(searchString))
             {
                 persons = persons.Where(m => m.HoTen.ToUpper().Contains(searchString.ToUpper()));
             }
 
-            return View(await persons.ToListAsync());
+            // Xử lý phân trang
+            ViewBag.PageSize = new List<SelectListItem>()
+            {
+                new SelectListItem() { Value="3", Text="3"},
+                new SelectListItem() { Value="5", Text="5"},
+                new SelectListItem() { Value="10", Text="10"},
+                new SelectListItem() { Value="15", Text="15"},
+                new SelectListItem() { Value="25", Text="25"},
+                new SelectListItem() { Value="50", Text="50"}
+                
+            };
+            int pagesize = (PageSize ?? 3);
+            ViewBag.psize = pagesize;
+            var model = _context.Person.ToList().ToPagedList(page ?? 1, pagesize);
+            return View(model);
         }
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]

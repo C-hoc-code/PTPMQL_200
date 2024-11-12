@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using DemoMVC.Models.Entites;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using DemoMVCIdentity.Models;
+using DemoMVC.Models;
 
 namespace DemoMVC.Data
 {
