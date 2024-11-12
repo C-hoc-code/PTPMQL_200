@@ -4,8 +4,17 @@ using DemoMVC.Data;
 using Microsoft.AspNetCore.Identity;
 using DemoMVC.Models;
 using Microsoft.Extensions.Options;
+using DemoMVC.Models.Process;
+using Microsoft.AspNetCore.Identity.UI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Gửi về maill
+builder.Services.AddOptions();
+var mailSettings = builder.Configuration.GetSection("MailSettings");
+builder.Services.Configure<MailSettings>(mailSettings);
+builder.Services.AddTransient<IEmailSender, SendMailService>();
+
 builder.Services.AddDbContext<ApplicationContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'ApplicationContext' not found.")));
 
