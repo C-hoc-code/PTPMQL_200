@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using DemoMVC.Models.Entites;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using DemoMVC.Models;
+using DemoMVC.Controllers;
 
 namespace DemoMVC.Data
 {
@@ -23,7 +24,5 @@ namespace DemoMVC.Data
 
         public DbSet<DaiLy> DaiLy { get; set; } = default!;
         public DbSet<MemberUnit> MemberUnit { get; set; } = default!;
-
-
     }
 }

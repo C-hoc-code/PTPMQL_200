@@ -18,15 +18,22 @@ builder.Services.AddTransient<IEmailSender, SendMailService>();
 builder.Services.AddDbContext<ApplicationContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'ApplicationContext' not found.")));
 
-builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<ApplicationContext>();
+// builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<ApplicationContext>();
+
+// Quản lí role
+builder.Services.AddRazorPages();
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddEntityFrameworkStores<ApplicationContext>()
+    .AddDefaultTokenProviders();
+
 
 builder.Services.AddControllersWithViews();
 builder.Services.Configure<IdentityOptions>(options =>
 {
     // Mặc định khóa đăng nhâp
-    options.Lockout.DefaultLockoutTimeSpan=TimeSpan.FromMinutes(5);
-    options.Lockout.MaxFailedAccessAttempts=3;
-    options.Lockout.AllowedForNewUsers=true;
+    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
+    options.Lockout.MaxFailedAccessAttempts = 3;
+    options.Lockout.AllowedForNewUsers = true;
 
     // Cấu hình mật khẩu
     options.Password.RequireDigit = true;
@@ -46,7 +53,7 @@ builder.Services.Configure<IdentityOptions>(options =>
 // Cấu hình coockie
 builder.Services.ConfigureApplicationCookie(options =>
 {
-    options.Cookie.HttpOnly = true; 
+    options.Cookie.HttpOnly = true;
     options.ExpireTimeSpan = TimeSpan.FromMinutes(60);
     options.LoginPath = "/Account/Login";
     options.AccessDeniedPath = "/Account/AccessDenied";
