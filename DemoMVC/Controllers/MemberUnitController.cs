@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Authorization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,88 +10,85 @@ using DemoMVC.Models.Entites;
 
 namespace DemoMVC.Controllers
 {
-    [Authorize] // cần đăng nhập mới có thể truy cập và chỉnh sửa
-    public class EmployeeController : Controller
+    public class MemberUnitController : Controller
     {
         private readonly ApplicationContext _context;
 
-        public EmployeeController(ApplicationContext context)
+        public MemberUnitController(ApplicationContext context)
         {
             _context = context;
         }
 
-        [AllowAnonymous] // có thể truy cập mà không cần phải xác thực người dùng
-
-        // GET: Employee
+        // GET: MemberUnit
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Employee.ToListAsync());
+            return View(await _context.MemberUnit.ToListAsync());
         }
 
-        // GET: Employee/Details/5
-        public async Task<IActionResult> Details(string id)
+        // GET: MemberUnit/Details/5
+        public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var employee = await _context.Employee
-                .FirstOrDefaultAsync(m => m.EmployeeID == id);
-            if (employee == null)
+            var memberUnit = await _context.MemberUnit
+                .FirstOrDefaultAsync(m => m.MemberUnitId == id);
+            if (memberUnit == null)
             {
                 return NotFound();
             }
 
-            return View(employee);
+            return View(memberUnit);
         }
 
-        // GET: Employee/Create
+        // GET: MemberUnit/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Employee/Create
+        // POST: MemberUnit/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("EmployeeID,FirstName,LastName,Address,DateOfBirth,Position,Email,HireDate")] Employee employee)
+        public async Task<IActionResult> Create([Bind("MemberUnitId,Name,Address,PhoneNumber,WebsiteUrl")] MemberUnit memberUnit)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(employee);
+                _context.Add(memberUnit);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(employee);
+            return View(memberUnit);
         }
 
-        // GET: Employee/Edit/5
-        public async Task<IActionResult> Edit(string id)
+        // GET: MemberUnit/Edit/5
+        public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var employee = await _context.Employee.FindAsync(id);
-            if (employee == null)
+            var memberUnit = await _context.MemberUnit.FindAsync(id);
+            if (memberUnit == null)
             {
                 return NotFound();
             }
-            return View(employee);
+            return View(memberUnit);
         }
 
-        // POST: Employee/Edit/5
+        // POST: MemberUnit/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("EmployeeID,FirstName,LastName,Address,DateOfBirth,Position,Email,HireDate")] Employee employee)
+        public async Task<IActionResult> Edit(int id, [Bind("MemberUnitId,Name,Address,PhoneNumber,WebsiteUrl")] MemberUnit memberUnit)
         {
-            if (id != employee.EmployeeID)
+            if (id != memberUnit.MemberUnitId)
             {
                 return NotFound();
             }
@@ -101,12 +97,12 @@ namespace DemoMVC.Controllers
             {
                 try
                 {
-                    _context.Update(employee);
+                    _context.Update(memberUnit);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!EmployeeExists(employee.EmployeeID))
+                    if (!MemberUnitExists(memberUnit.MemberUnitId))
                     {
                         return NotFound();
                     }
@@ -117,45 +113,45 @@ namespace DemoMVC.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(employee);
+            return View(memberUnit);
         }
 
-        // GET: Employee/Delete/5
-        public async Task<IActionResult> Delete(string id)
+        // GET: MemberUnit/Delete/5
+        public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var employee = await _context.Employee
-                .FirstOrDefaultAsync(m => m.EmployeeID == id);
-            if (employee == null)
+            var memberUnit = await _context.MemberUnit
+                .FirstOrDefaultAsync(m => m.MemberUnitId == id);
+            if (memberUnit == null)
             {
                 return NotFound();
             }
 
-            return View(employee);
+            return View(memberUnit);
         }
 
-        // POST: Employee/Delete/5
+        // POST: MemberUnit/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(string id)
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var employee = await _context.Employee.FindAsync(id);
-            if (employee != null)
+            var memberUnit = await _context.MemberUnit.FindAsync(id);
+            if (memberUnit != null)
             {
-                _context.Employee.Remove(employee);
+                _context.MemberUnit.Remove(memberUnit);
             }
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool EmployeeExists(string id)
+        private bool MemberUnitExists(int id)
         {
-            return _context.Employee.Any(e => e.EmployeeID == id);
+            return _context.MemberUnit.Any(e => e.MemberUnitId == id);
         }
     }
 }

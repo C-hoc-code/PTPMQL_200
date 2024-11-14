@@ -53,8 +53,18 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.SlidingExpiration = true;
 });
 
+// // Employee
+// builder.Services.AddTransient<EmployeeSeeder>();
 
 var app = builder.Build();
+
+// // Employee
+// using (var scope = app.Services.CreateScope())
+// {
+//     var services = scope.ServiceProvider;
+//     var seeder = services.GetRequiredService<EmployeeSeeder>();
+//     seeder.SeedEmployees(1000);
+// }
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

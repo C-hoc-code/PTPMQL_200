@@ -46,6 +46,19 @@
           }
         }
       },
+      "Bogus/35.6.1": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/Bogus.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Bogus.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "BouncyCastle.Cryptography/2.4.0": {
         "type": "package",
         "compile": {
@@ -3350,6 +3363,25 @@
         "azureicon.png",
         "lib/netstandard2.0/Azure.Identity.dll",
         "lib/netstandard2.0/Azure.Identity.xml"
+      ]
+    },
+    "Bogus/35.6.1": {
+      "sha512": "QPJ8zLL0ScEunEoUNhMDigD4ykA/n7vXCZUQdGCFGHBfP2mNYjiCzR9Cj12eaFaDlwkhIC1HKQZihWl8OgbLsw==",
+      "type": "package",
+      "path": "bogus/35.6.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "bogus.35.6.1.nupkg.sha512",
+        "bogus.nuspec",
+        "lib/net40/Bogus.dll",
+        "lib/net40/Bogus.xml",
+        "lib/net6.0/Bogus.dll",
+        "lib/net6.0/Bogus.xml",
+        "lib/netstandard1.3/Bogus.dll",
+        "lib/netstandard1.3/Bogus.xml",
+        "lib/netstandard2.0/Bogus.dll",
+        "lib/netstandard2.0/Bogus.xml"
       ]
     },
     "BouncyCastle.Cryptography/2.4.0": {
@@ -9145,6 +9177,7 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "Bogus >= 35.6.1",
       "EPPlus >= 7.4.2",
       "MailKit >= 4.8.0",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 8.0.10",
@@ -9163,11 +9196,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\PTPMQL_200\\DemoMVC\\DemoMVC.csproj",
+      "projectUniqueName": "D:\\PTPMQL_200\\demomvc\\DemoMVC.csproj",
       "projectName": "DemoMVC",
-      "projectPath": "D:\\PTPMQL_200\\DemoMVC\\DemoMVC.csproj",
+      "projectPath": "D:\\PTPMQL_200\\demomvc\\DemoMVC.csproj",
       "packagesPath": "C:\\Users\\cuong\\.nuget\\packages\\",
-      "outputPath": "D:\\PTPMQL_200\\DemoMVC\\obj\\",
+      "outputPath": "D:\\PTPMQL_200\\demomvc\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\cuong\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -9199,6 +9232,10 @@
       "net8.0": {
         "targetAlias": "net8.0",
         "dependencies": {
+          "Bogus": {
+            "target": "Package",
+            "version": "[35.6.1, )"
+          },
           "EPPlus": {
             "target": "Package",
             "version": "[7.4.2, )"

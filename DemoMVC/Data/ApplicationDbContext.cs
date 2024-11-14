@@ -22,6 +22,7 @@ namespace DemoMVC.Data
         public DbSet<HeThongPhanPhoi> HeThongPhanPhoi { get; set; } = default!;
 
         public DbSet<DaiLy> DaiLy { get; set; } = default!;
+        public DbSet<MemberUnit> MemberUnit { get; set; } = default!;
 
 
     }

@@ -3,6 +3,7 @@ using System;
 using DemoMVC.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DemoMVC.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20241113101522_DeleteEmployeeTableAndColumns")]
+    partial class DeleteEmployeeTableAndColumns
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.10");
@@ -144,33 +147,6 @@ namespace DemoMVC.Migrations
                     b.HasDiscriminator().HasValue("HeThongPhanPhoi");
 
                     b.UseTphMappingStrategy();
-                });
-
-            modelBuilder.Entity("DemoMVC.Models.Entites.MemberUnit", b =>
-                {
-                    b.Property<int>("MemberUnitId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Address")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("PhoneNumber")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("WebsiteUrl")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("MemberUnitId");
-
-                    b.ToTable("MemberUnit");
                 });
 
             modelBuilder.Entity("DemoMVC.Models.Entites.Person", b =>

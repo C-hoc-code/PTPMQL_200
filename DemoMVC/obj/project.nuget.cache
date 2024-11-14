@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "MRtJPEXiVO0kchzAvg7D0Vaq7oK/nCKnD4D5IosDfAgy6ohMA9kK0fDdLPIA768a1T825HDNM4tgcmFWHZBHYg==",
+  "dgSpecHash": "tLbbB96LP45d6M9fB5y6FPWFXq31t5F0P4f35WYm97POPB64Shkiq8X+nsabPjLLopMNY1APQqalBMTVNXzXKg==",
   "success": true,
   "projectFilePath": "D:\\PTPMQL_200\\DemoMVC\\DemoMVC.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\cuong\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\cuong\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
+    "C:\\Users\\cuong\\.nuget\\packages\\bogus\\35.6.1\\bogus.35.6.1.nupkg.sha512",
     "C:\\Users\\cuong\\.nuget\\packages\\bouncycastle.cryptography\\2.4.0\\bouncycastle.cryptography.2.4.0.nupkg.sha512",
     "C:\\Users\\cuong\\.nuget\\packages\\epplus\\7.4.2\\epplus.7.4.2.nupkg.sha512",
     "C:\\Users\\cuong\\.nuget\\packages\\epplus.interfaces\\6.1.1\\epplus.interfaces.6.1.1.nupkg.sha512",
