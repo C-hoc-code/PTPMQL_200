@@ -60,8 +60,23 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.SlidingExpiration = true;
 });
 
-// // Employee
+// Thêm sửa xóa Claim cho user
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("Role", policy => policy.RequireClaim("Role", "AdminOnly"));
+    options.AddPolicy("Permission", policy => policy.RequireClaim("Role", "EmployeeOnly"));
+});
+
+// Employee
 // builder.Services.AddTransient<EmployeeSeeder>();
+builder.Services.ConfigureApplicationCookie(options => 
+{
+    options.LoginPath = $"/Identity/Account/Login";
+    options.LogoutPath = $"/Identity/Account/Logout";
+    options.AccessDeniedPath = $"/Identity/Account/AccessDenied";
+});
+
+
 
 var app = builder.Build();
 

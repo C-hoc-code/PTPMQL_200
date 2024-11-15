@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DemoMVC.Data;
 using DemoMVC.Models.Entites;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DemoMVC.Controllers
 {
+    [Authorize(Policy = "Permission")]
     public class MemberUnitController : Controller
     {
         private readonly ApplicationContext _context;
@@ -42,7 +44,7 @@ namespace DemoMVC.Controllers
 
             return View(memberUnit);
         }
-
+        [Authorize(Policy = "Role")]
         // GET: MemberUnit/Create
         public IActionResult Create()
         {

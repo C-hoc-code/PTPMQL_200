@@ -28,6 +28,7 @@ namespace DemoMVC.Controllers
         {
             return View(await _context.Employee.ToListAsync());
         }
+        [Authorize(Roles = "Employee")]
 
         // GET: Employee/Details/5
         public async Task<IActionResult> Details(string id)
@@ -46,7 +47,7 @@ namespace DemoMVC.Controllers
 
             return View(employee);
         }
-
+        [Authorize(Roles ="Admin")]
         // GET: Employee/Create
         public IActionResult Create()
         {
@@ -68,6 +69,7 @@ namespace DemoMVC.Controllers
             }
             return View(employee);
         }
+        [Authorize(Roles = "Admin")]
 
         // GET: Employee/Edit/5
         public async Task<IActionResult> Edit(string id)
