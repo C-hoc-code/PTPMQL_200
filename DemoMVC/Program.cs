@@ -68,7 +68,7 @@ builder.Services.AddAuthorization(options =>
 });
 
 // Employee
-// builder.Services.AddTransient<EmployeeSeeder>();
+builder.Services.AddTransient<EmployeeSeeder>();
 builder.Services.ConfigureApplicationCookie(options => 
 {
     options.LoginPath = $"/Identity/Account/Login";
@@ -80,13 +80,13 @@ builder.Services.ConfigureApplicationCookie(options =>
 
 var app = builder.Build();
 
-// // Employee
-// using (var scope = app.Services.CreateScope())
-// {
-//     var services = scope.ServiceProvider;
-//     var seeder = services.GetRequiredService<EmployeeSeeder>();
-//     seeder.SeedEmployees(1000);
-// }
+// Employee
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var seeder = services.GetRequiredService<EmployeeSeeder>();
+    seeder.SeedEmployees(1000);
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

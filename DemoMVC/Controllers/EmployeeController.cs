@@ -8,7 +8,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DemoMVC.Data;
 using DemoMVC.Models.Entites;
-
+using X.PagedList;
+using X.PagedList.Extensions;
 namespace DemoMVC.Controllers
 {
     [Authorize] // cần đăng nhập mới có thể truy cập và chỉnh sửa
@@ -24,14 +25,15 @@ namespace DemoMVC.Controllers
         [AllowAnonymous] // có thể truy cập mà không cần phải xác thực người dùng
 
         // GET: Employee
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? page)
         {
-            return View(await _context.Employee.ToListAsync());
+            var model =_context.Employee.ToList().ToPagedList(page ?? 1, 5);
+            return View(model);
         }
         [Authorize(Roles = "Employee")]
 
         // GET: Employee/Details/5
-        public async Task<IActionResult> Details(string id)
+        public async Task<IActionResult> Details(int id)
         {
             if (id == null)
             {
@@ -72,7 +74,7 @@ namespace DemoMVC.Controllers
         [Authorize(Roles = "Admin")]
 
         // GET: Employee/Edit/5
-        public async Task<IActionResult> Edit(string id)
+        public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
             {
@@ -92,7 +94,7 @@ namespace DemoMVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("EmployeeID,FirstName,LastName,Address,DateOfBirth,Position,Email,HireDate")] Employee employee)
+        public async Task<IActionResult> Edit(int id, [Bind("EmployeeID,FirstName,LastName,Address,DateOfBirth,Position,Email,HireDate")] Employee employee)
         {
             if (id != employee.EmployeeID)
             {
@@ -123,7 +125,7 @@ namespace DemoMVC.Controllers
         }
 
         // GET: Employee/Delete/5
-        public async Task<IActionResult> Delete(string id)
+        public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
             {
@@ -143,7 +145,7 @@ namespace DemoMVC.Controllers
         // POST: Employee/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(string id)
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var employee = await _context.Employee.FindAsync(id);
             if (employee != null)
@@ -155,7 +157,7 @@ namespace DemoMVC.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool EmployeeExists(string id)
+        private bool EmployeeExists(int id)
         {
             return _context.Employee.Any(e => e.EmployeeID == id);
         }
