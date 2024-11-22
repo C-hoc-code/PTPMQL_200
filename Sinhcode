@@ -1,4 +1,4 @@
-dotnet aspnet-codegenerator controller -name StudentController -m Student -dc DemoMVC.Data.ApplicationContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries --databaseProvider sqlite
+dotnet aspnet-codegenerator controller -name MemberUnitController -m MemberUnit -dc DemoMVC.Data.ApplicationContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries --databaseProvider sqlite
 
 dotnet aspnet-codegenerator controller -name DaiLyController -m DaiLy -dc DemoMVC.Data.ApplicationContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries --databaseProvider sqlite
 
