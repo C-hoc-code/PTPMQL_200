@@ -1,20 +1,19 @@
 using MailKit.Net.Smtp;
-using MailKit;
+using MimeKit;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.Extensions.Options;
 using MailKit.Security;
-using MimeKit;
 namespace DemoMVC.Models.Process
 {
     public class SendMailService : IEmailSender
     {
         private readonly MailSettings mailSettings;
         private readonly ILogger<SendMailService> logger;
-        public SendMailService(IOptions<MailSettings> _mailSettings, ILogger<SendMailService> _logger) 
+        public SendMailService(IOptions<MailSettings> _mailSettings, ILogger<SendMailService> _logger)
         {
             mailSettings = _mailSettings.Value;
             logger = _logger;
-            logger.LogInformation("Tạo dịch vụ gửi Mail");
+            logger.LogInformation("Create SendMailService");
         }
         public async Task SendEmailAsync(string email, string subject, string htmlMessage)
         {
@@ -35,17 +34,16 @@ namespace DemoMVC.Models.Process
             }
             catch (Exception ex)
             {
-                // Gửi mail thất bại, nội dung email sẽ lưu vào thư mục mailsSave
+                // Gửi mail thất bại, nội dung email sẽ lưu vào thư mục mailsSave
                 System.IO.Directory.CreateDirectory("mailsSave");
                 var emailSaveFile = string.Format(@"mailsSave/{0}.eml", Guid.NewGuid());
                 await message.WriteToAsync(emailSaveFile);
 
-                logger.LogInformation("Gặp lỗi khi gửi mail, lưu tại - ", emailSaveFile);
+                logger.LogInformation("Lỗi gửi mail, lưu tại - " + emailSaveFile);
                 logger.LogError(ex.Message);
             }
             smtp.Disconnect(true);
-            logger.LogInformation("Đã gửi mail tới: "+ email);
+            logger.LogInformation("send mail to: " + email);
         }
-        
     }
 }

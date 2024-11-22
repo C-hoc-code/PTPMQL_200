@@ -4,9 +4,11 @@ using Microsoft.EntityFrameworkCore;
 using DemoMVC.Models;
 using DemoMVC.Models.ViewModels;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DemoMVC.Controllers
 {
+    [Authorize(Policy="PolicyByPhoneNumber")]
     public class AccountController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;
