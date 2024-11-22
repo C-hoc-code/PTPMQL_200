@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace DemoMVC.Controllers
 {
-    [Authorize(Policy = "PolicyEmployee")]
+    // [Authorize(Policy = "PolicyEmployee")]
     public class MemberUnitController : Controller
     {
         private readonly ApplicationContext _context;
@@ -44,7 +44,7 @@ namespace DemoMVC.Controllers
 
             return View(memberUnit);
         }
-        [Authorize(Policy = "PolicyAdmin")]
+        // [Authorize(Policy = "PolicyAdmin")]
         // GET: MemberUnit/Create
         public IActionResult Create()
         {

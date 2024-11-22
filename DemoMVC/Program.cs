@@ -7,6 +7,7 @@ using Microsoft.Extensions.Options;
 using DemoMVC.Models.Process;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Authorization;
+using System.Security;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -64,17 +65,22 @@ builder.Services.ConfigureApplicationCookie(options =>
 // Thêm sửa xóa Claim cho user
 builder.Services.AddAuthorization(options =>
 {
-    options.AddPolicy("Role", policy => policy.RequireClaim("Role", "AdminOnly"));
-    options.AddPolicy("Permission", policy => policy.RequireClaim("Role", "EmployeeOnly"));
-    options.AddPolicy("PolicyAdmin", policy => policy.RequireRole("Admin"));
-    options.AddPolicy("PolicyEmployee", policy => policy.RequireRole("Employee"));
-    options.AddPolicy("PolicyByPhoneNumber", policy => policy.Requirements.Add(new PolicyByPhoneNumberRequirement()));
+    foreach (var permission in Enum.GetValues(typeof(SystemPermissions)).Cast<SystemPermissions>())
+    {
+        options.AddPolicy(permission.ToString(), policy => 
+        policy.RequireClaim("Permission",permission.ToString()));
+    }   
+    // options.AddPolicy("Role", policy => policy.RequireClaim("Role", "AdminOnly"));
+    // options.AddPolicy("Permission", policy => policy.RequireClaim("Role", "EmployeeOnly"));
+    // options.AddPolicy("PolicyAdmin", policy => policy.RequireRole("Admin"));
+    // options.AddPolicy("PolicyEmployee", policy => policy.RequireRole("Employee"));
+    // options.AddPolicy("PolicyByPhoneNumber", policy => policy.Requirements.Add(new PolicyByPhoneNumberRequirement()));
 });
 builder.Services.AddSingleton<IAuthorizationHandler, PolicyByPhoneNumberHandler>();
 
 // Employee
 builder.Services.AddTransient<EmployeeSeeder>();
-builder.Services.ConfigureApplicationCookie(options => 
+builder.Services.ConfigureApplicationCookie(options =>
 {
     options.LoginPath = $"/Identity/Account/Login";
     options.LogoutPath = $"/Identity/Account/Logout";

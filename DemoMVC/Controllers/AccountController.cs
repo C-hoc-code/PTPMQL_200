@@ -5,10 +5,11 @@ using DemoMVC.Models;
 using DemoMVC.Models.ViewModels;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
+using DemoMVC.Models.Process;
 
 namespace DemoMVC.Controllers
 {
-    [Authorize(Policy="PolicyByPhoneNumber")]
+    // [Authorize(Policy="PolicyByPhoneNumber")]
     public class AccountController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;
@@ -18,6 +19,7 @@ namespace DemoMVC.Controllers
             _userManager = userManager;
             _roleManager = roleManager;
         }
+        [Authorize(Policy = nameof(SystemPermissions.AccountView))]
         public async Task<ActionResult> Index()
         {
             var users = await _userManager.Users.ToListAsync();
@@ -29,6 +31,7 @@ namespace DemoMVC.Controllers
             }
             return View(UserWithRoles);
         }
+        [Authorize(Policy = nameof(SystemPermissions.AssignRole))]
 
         public async Task<IActionResult> AssignRole(string userId)
         {
@@ -38,7 +41,7 @@ namespace DemoMVC.Controllers
                 return NotFound();
             }
             var userRoles = await _userManager.GetRolesAsync(user);
-            var allRoles = await _roleManager.Roles.Select(r => new RoleVM { Id = r.Id, Name = r.Name}).ToListAsync();
+            var allRoles = await _roleManager.Roles.Select(r => new RoleVM { Id = r.Id, Name = r.Name }).ToListAsync();
             var viewModel = new AssignRoleVM
             {
                 UserId = userId,
@@ -61,14 +64,14 @@ namespace DemoMVC.Controllers
                 var userRoles = await _userManager.GetRolesAsync(user);
                 foreach (var role in model.SelectedRoles)
                 {
-                    if(!userRoles.Contains(role))
+                    if (!userRoles.Contains(role))
                     {
                         await _userManager.AddToRoleAsync(user, role);
                     }
                 }
                 foreach (var role in userRoles)
                 {
-                    if(!model.SelectedRoles.Contains(role))
+                    if (!model.SelectedRoles.Contains(role))
                     {
                         await _userManager.RemoveFromRoleAsync(user, role);
                     }
@@ -86,7 +89,7 @@ namespace DemoMVC.Controllers
             return View(model);
         }
         [HttpPost]
-        public async Task<ActionResult> AddClaim(string userId, string claimType,string claimValue)
+        public async Task<ActionResult> AddClaim(string userId, string claimType, string claimValue)
         {
             var user = await _userManager.FindByIdAsync(userId);
             var result = await _userManager.AddClaimAsync(user, new Claim(claimType, claimValue));
