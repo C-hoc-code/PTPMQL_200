@@ -145,6 +145,21 @@ namespace DemoMVC.Migrations
                     b.UseTphMappingStrategy();
                 });
 
+            modelBuilder.Entity("DemoMVC.Models.Entites.LopHoc", b =>
+                {
+                    b.Property<int>("MaLop")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("TenLop")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("MaLop");
+
+                    b.ToTable("LopHoc");
+                });
+
             modelBuilder.Entity("DemoMVC.Models.Entites.MemberUnit", b =>
                 {
                     b.Property<int>("MemberUnitId")
@@ -195,15 +210,16 @@ namespace DemoMVC.Migrations
                     b.Property<string>("StudentID")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Address")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("FullName")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<int?>("MaLop")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("StudentID");
+
+                    b.HasIndex("MaLop");
 
                     b.ToTable("Student");
                 });
@@ -363,6 +379,16 @@ namespace DemoMVC.Migrations
                     b.HasDiscriminator().HasValue("DaiLy");
                 });
 
+            modelBuilder.Entity("DemoMVC.Models.Entites.Student", b =>
+                {
+                    b.HasOne("DemoMVC.Models.Entites.LopHoc", "LopHoc")
+                        .WithMany("Students")
+                        .HasForeignKey("MaLop")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.Navigation("LopHoc");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -412,6 +438,11 @@ namespace DemoMVC.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("DemoMVC.Models.Entites.LopHoc", b =>
+                {
+                    b.Navigation("Students");
                 });
 #pragma warning restore 612, 618
         }

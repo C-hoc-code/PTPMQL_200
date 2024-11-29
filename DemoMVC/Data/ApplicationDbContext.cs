@@ -24,5 +24,17 @@ namespace DemoMVC.Data
 
         public DbSet<DaiLy> DaiLy { get; set; } = default!;
         public DbSet<MemberUnit> MemberUnit { get; set; } = default!;
+        public DbSet<LopHoc> LopHoc { get; set; } = default!;
+
+         protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+
+        modelBuilder.Entity<LopHoc>()
+            .HasMany(e => e.Students)
+            .WithOne(e => e.LopHoc)
+            .HasForeignKey(e => e.MaLop)
+            .OnDelete(DeleteBehavior.Restrict);
+    }
     }
 }

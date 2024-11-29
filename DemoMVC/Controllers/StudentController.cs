@@ -1,4 +1,9 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DemoMVC.Data;
 using DemoMVC.Models.Entites;
@@ -17,7 +22,8 @@ namespace DemoMVC.Controllers
         // GET: Student
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Student.ToListAsync());
+            var applicationContext = _context.Student.Include(s => s.LopHoc);
+            return View(await applicationContext.ToListAsync());
         }
 
         // GET: Student/Details/5
@@ -29,6 +35,7 @@ namespace DemoMVC.Controllers
             }
 
             var student = await _context.Student
+                .Include(s => s.LopHoc)
                 .FirstOrDefaultAsync(m => m.StudentID == id);
             if (student == null)
             {
@@ -41,6 +48,7 @@ namespace DemoMVC.Controllers
         // GET: Student/Create
         public IActionResult Create()
         {
+            ViewData["MaLop"] = new SelectList(_context.LopHoc, "MaLop", "TenLop");
             return View();
         }
 
@@ -49,7 +57,7 @@ namespace DemoMVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("StudentID,FullName,Address")] Student student)
+        public async Task<IActionResult> Create([Bind("StudentID,FullName,MaLop")] Student student)
         {
             if (ModelState.IsValid)
             {
@@ -57,6 +65,7 @@ namespace DemoMVC.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["MaLop"] = new SelectList(_context.LopHoc, "MaLop", "TenLop", student.MaLop);
             return View(student);
         }
 
@@ -73,6 +82,7 @@ namespace DemoMVC.Controllers
             {
                 return NotFound();
             }
+            ViewData["MaLop"] = new SelectList(_context.LopHoc, "MaLop", "MaLop", student.MaLop);
             return View(student);
         }
 
@@ -81,7 +91,7 @@ namespace DemoMVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("StudentID,FullName,Address")] Student student)
+        public async Task<IActionResult> Edit(string id, [Bind("StudentID,FullName,MaLop")] Student student)
         {
             if (id != student.StudentID)
             {
@@ -108,6 +118,7 @@ namespace DemoMVC.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["MaLop"] = new SelectList(_context.LopHoc, "MaLop", "MaLop", student.MaLop);
             return View(student);
         }
 
@@ -120,6 +131,7 @@ namespace DemoMVC.Controllers
             }
 
             var student = await _context.Student
+                .Include(s => s.LopHoc)
                 .FirstOrDefaultAsync(m => m.StudentID == id);
             if (student == null)
             {

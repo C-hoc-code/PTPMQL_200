@@ -10,7 +10,8 @@ namespace DemoMVC.Models.Entites
         public string StudentID { get; set; }
         public string FullName { get; set; }
 
-        public string Address { get; set; }
+        public int? MaLop { get; set; }
+        public LopHoc? LopHoc { get; set; }
 
     }
 }
